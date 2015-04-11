@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello React</title>
+    <script src="src/react-0.13.0.js"></script>
+    <script src="src/JSXTransformer-0.13.0.js"></script>
+</head>
+<body>
+<div id="example1"></div>
+
+<script>
+    var span = React.DOM.span({className:"text"},"span content");
+
+    React.render(span,document.body,function(){
+        console.log('callback?')
+    })
+
+
+    setTimeout(function(){
+
+        console.log(React.unmountComponentAtNode(document.body))
+
+    },2000)
+
+</script>
+
+</body>
+</html>

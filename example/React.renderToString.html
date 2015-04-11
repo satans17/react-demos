@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello React</title>
+    <script src="src/react-0.13.0.js"></script>
+    <script src="src/JSXTransformer-0.13.0.js"></script>
+</head>
+<body>
+<div id="example1"></div>
+
+<script>
+    var span = React.DOM.span({className:"text"},"span content");
+
+alert(React.renderToString(span));
+
+
+// React.renderToStaticMarkup
+// 和 renderToString 类似，除了不创建额外的 DOM 属性，
+// 例如 data-react-id，因为这些属性仅在 React 内部使用。
+// 如果你想用 React 做一个简单的静态页面生成器，这是很有用的，
+// 因为丢掉额外的属性能够节省很多字节。
+</script>
+
+</body>
+</html>

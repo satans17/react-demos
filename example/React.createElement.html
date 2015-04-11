@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello React</title>
+    <script src="src/react-0.13.0.js"></script>
+    <script src="src/JSXTransformer-0.13.0.js"></script>
+</head>
+<body>
+<div id="example1"></div>
+<div id="example2"></div>
+<script>
+    var child = React.createElement('li', null, 'Text Content1');
+    var root = React.createElement('ul', { className: 'my-list' }, child);
+    React.render(root, document.getElementById('example1'));
+</script>
+
+<script>
+    var root = React.DOM.ul(
+            { className: 'my-list' },
+            React.DOM.li(null, 'Text Content2')
+    );
+    React.render(root, document.getElementById('example2'))
+</script>
+
+
+</body>
+</html>
