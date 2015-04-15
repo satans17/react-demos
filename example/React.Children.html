@@ -12,24 +12,25 @@
 
 
     var NotesList = React.createClass({
-        render: function() {
+        render: function () {
             return (
                     <ol>
-                    {
-                        this.props.children.map(function (child) {
-                                return <li>{child}</li>
+                        {
+                            this.props.children.map(function (child) {
+                                return
+                                <li > {child} < / li >
                             })
+                        }
+                    </ol>
+            );
         }
-                </ol>
-    );
-    }
     });
 
     React.render(
-    <NotesList>
-    <span>hello</span>
-    <span>world</span>
-    </NotesList>,
+            <NotesList>
+                <span>hello</span>
+                <span>world</span>
+            </NotesList>,
             document.body
     );
 

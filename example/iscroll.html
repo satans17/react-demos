@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Hello React</title>
+    <script src="src/react-0.13.0.js"></script>
+    <script src="src/JSXTransformer-0.13.0.js"></script>
+
+    <script src="src/iscroll-probe.js"></script>
+</head>
+<body>
+
+<script type="text/jsx">
+    var App = React.createClass({
+        handlerClick:function(){
+            this.refs.scroller.scrollToTop();
+        },
+        render:function(){
+            var p = {
+                height:100
+            };
+
+            return (
+                    <Scroller ref="scroller">
+                        <p style={p}>1</p>
+                        <p style={p}>2</p>
+                        <p style={p}>3</p>
+                        <p style={p}>4</p>
+                        <p style={p}>5</p>
+                        <p style={p} onClick={this.handlerClick}>点我</p>
+                    </Scroller>
+            )
+        }
+    });
+
+
+    var Scroller = React.createClass({
+        scrollToTop: function() {
+            this.scroller.scrollTo(0, -100, 1000, IScroll.utils.ease.elastic);
+        },
+        render: function () {
+            var style = {
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            };
+
+            return (<div style={style} ref="wrapper"><div>{this.props.children}</div></div>)
+        },
+        componentDidMount: function () {
+            this.scroller = new IScroll(this.refs.wrapper.getDOMNode());
+        }
+    });
+
+
+
+
+    React.render(<App/>,
+            document.body);
+
+
+</script>
+
+
+</body>
+</html>
